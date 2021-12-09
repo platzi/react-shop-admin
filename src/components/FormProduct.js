@@ -1,6 +1,23 @@
+import { useRef } from 'react';
+
 export default function FormProduct() {
+  const formRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(formRef.current);
+    const data = {
+      title: formData.get('title'),
+      price: parseInt(formData.get('price')),
+      description: formData.get('description'),
+      categoryId: parseInt(formData.get('category')),
+      images: [formData.get('images').name],
+    };
+    console.log(data);
+  };
+
   return (
-    <form>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <div className="overflow-hidden">
         <div className="px-4 py-5 bg-white sm:p-6">
           <div className="grid grid-cols-6 gap-6">
