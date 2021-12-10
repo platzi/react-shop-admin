@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { addProduct, updateProduct } from '@services/api/products';
 
 export default function FormProduct({ setOpen, setAlert, product }) {
